@@ -53,7 +53,7 @@ public class UserService implements User_S_Interface {
 
     @Override
     public Page<UserResponse> search(PersonRequest personRequest, Pageable pageable) {
-        Page<Person> answers = this.userRepository.searchAllByFullNameLike(personRequest.toString() , pageable);
+        Page<Person> answers = this.userRepository.searchAllByFullNameLike(personRequest.getFullName() , pageable);
         return answers.map(answer -> modelMapper.map(answer, UserResponse.class));
     }
 }
