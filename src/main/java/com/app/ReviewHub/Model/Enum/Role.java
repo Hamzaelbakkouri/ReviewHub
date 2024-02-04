@@ -1,7 +1,6 @@
 package com.app.ReviewHub.Model.Enum;
 
 import lombok.AllArgsConstructor;
-import org.springframework.security.authorization.event.AuthorizationGrantedEvent;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

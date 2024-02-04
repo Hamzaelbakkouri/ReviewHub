@@ -39,8 +39,14 @@ public final class Person implements UserDetails {
 
     private Role role;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Review> reviews;
+
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY)
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "blockedBy", fetch = FetchType.LAZY)
+    private List<Comment> commentBlocked;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

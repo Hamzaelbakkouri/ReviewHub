@@ -11,6 +11,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -35,4 +36,7 @@ public final class Review {
 
     @ManyToOne
     private Person user;
+
+    @OneToMany(mappedBy = "review")
+    private List<Comment> comments;
 }
