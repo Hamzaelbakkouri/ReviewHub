@@ -1,6 +1,6 @@
 package com.app.ReviewHub.Services.Implementation;
 
-import com.app.ReviewHub.Exeptions.NotFoundExeption;
+import com.app.ReviewHub.Exceptions.NotFoundException;
 import com.app.ReviewHub.Model.Dto.PersonRequest;
 import com.app.ReviewHub.Model.Dto.User.UserResponse;
 import com.app.ReviewHub.Model.Entity.Person;
@@ -31,7 +31,7 @@ public class UserService implements User_S_Interface {
     public UserResponse find(UUID uuid) {
         return this.modelMapper.map(
                 this.userRepository.findById(uuid)
-                        .orElseThrow(() -> new NotFoundExeption("User not Found")),
+                        .orElseThrow(() -> new NotFoundException("User not Found")),
                 UserResponse.class);
     }
 
@@ -42,7 +42,7 @@ public class UserService implements User_S_Interface {
             this.userRepository.deleteById(uuid);
             return true;
         }
-       throw new NotFoundExeption("User Not found");
+       throw new NotFoundException("User Not found");
     }
 
     @Override
